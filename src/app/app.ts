@@ -1,5 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { inject } from '@angular/core';
+import { TaskBoard } from './task-board-service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('task-board');
+   protected readonly taskBoard = inject(TaskBoard);
+    constructor(){
+      effect(() => {
+console.log('Signal:', this.taskBoard.getTaskSignal());
+console.log('Value:', this.taskBoard.getTaskSignal());
+});
+}
 }

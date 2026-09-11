@@ -39,6 +39,23 @@ testem.log
 /typings
 __screenshots__/
 
+
+# Environment variables
+.env
+.env.local
+
+# Firebase
+.firebase/
+# Environment variables
+.env
+.env.local
+
+# Firebase
+.firebase/
+
+# Firebase service account credentials
+*-firebase-adminsdk-*.json
+
 # System files
 .DS_Store
 Thumbs.db
