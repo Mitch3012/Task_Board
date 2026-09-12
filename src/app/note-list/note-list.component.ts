@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { TaskBoard } from '../task-board-service';
 import { Task } from '../task';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-note-list.component',
   styleUrl: './note-list.component.css',
   templateUrl: './note-list.component.html',
@@ -15,5 +16,8 @@ export class NoteListComponent {
 
   getTaskDetails(tasks: Task){
     this.currentTask = tasks;
+  }
+  onDelete(id:string){
+    this.taskService.deleteTask(id);
   }
 }

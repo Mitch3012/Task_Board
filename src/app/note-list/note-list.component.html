@@ -7,6 +7,8 @@
                 <p>Complete</p>
             </label>
             <button (click)="getTaskDetails(task)">View task details</button>
+            <a [routerLink]="['/tasks', task.id, 'update-note']">Edit task</a>
+            <button (click)="onDelete(task.id)">Delete Task</button>
         </li>
     }
 </ul>

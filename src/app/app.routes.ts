@@ -10,5 +10,5 @@ export const routes: Routes = [
     { path: 'DeleteNote', component: DeleteNoteComponent},
     { path: 'NoteList', component: NoteListComponent}, 
     { path: 'ReadNote', component: ReadNoteComponent},
-    { path: 'UpdateNote', component: UpdateNoteComponent},
+    { path: 'tasks/:id/update-note', component: UpdateNoteComponent},
 ];

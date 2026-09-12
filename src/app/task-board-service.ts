@@ -44,5 +44,4 @@ constructor() {
     console.log('Firestore tasks:', tasks);
   });
 }
-
 }

@@ -1,1 +1,15 @@
-<p>update-note.component works!</p>
+<form [formGroup]="editForm"(ngSubmit)="onSub()">
+<h3>Change a task from our tasklist.</h3>
+
+<label> Task title:</label>
+<input formControlName="title">
+
+<label>Description</label>
+<input formControlName="description">
+
+<label> Completed</label>
+<input type="checkbox" formControlName="completed">
+<button type ="submit">
+    Edit Task
+</button>
+</form>
