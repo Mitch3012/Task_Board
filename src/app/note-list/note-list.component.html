@@ -1,1 +1,16 @@
-<p>note-list.component works!</p>
+<ul>
+    @for (task of tasks(); track task.id){
+        <li>
+            <h3>Task title: {{ task.title }}</h3>
+            <label> 
+                <input type="checkbox"[checked]="task.completed">
+                <p>Completed </p>
+            </label>
+            <button (click)="getTaskDetails(task)">View task details</button>
+        </li>
+    }
+</ul>
+@if (currentTask !== null){
+    <h3>{{currentTask.title}}</h3>
+    <p>{{currentTask.description}}</p>
+}
