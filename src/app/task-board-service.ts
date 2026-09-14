@@ -31,17 +31,14 @@ addTask(task: Omit<Task, 'id'>){
 
 // Update
 updateTask(id: string, patch: Partial<Omit<Task, 'id'>>){
-  return updateDoc(doc(this.firestore, 'notes-list', id), patch);
+  return updateDoc(doc(this.notesCol, id), patch);
 }
 
 // Delete
 deleteTask(id: string){
-  return deleteDoc(doc(this.firestore, 'notes-list', id));
+  return deleteDoc(doc(this.notesCol, id));
 }
 getTaskSignal = toSignal(this.getTask$());
-constructor() {
-  this.getTask$().subscribe(tasks => {
-    console.log('Firestore tasks:', tasks);
-  });
+
 }
-}
+

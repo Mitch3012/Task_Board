@@ -3,7 +3,7 @@
         <li>
             <h3>Task title: {{ task.title }}</h3>
             <label> 
-                <input type="checkbox"[checked]="task.completed">
+                <input type="checkbox"[checked]="task.completed" disabled>
                 <p>Complete</p>
             </label>
             <button (click)="getTaskDetails(task)">View task details</button>

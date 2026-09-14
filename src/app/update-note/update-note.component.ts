@@ -28,7 +28,7 @@ export class UpdateNoteComponent implements OnInit {
   id = toSignal(this.route.paramMap);
   getId = computed(() => this.id()?.get('id'));
   task = computed(() => {
-    const id = String(this.getId());
+    const id = (this.getId());
     return this.taskService.getTaskSignal()?.find(task => task.id === id);
   });
   editForm = new FormGroup({
@@ -39,7 +39,23 @@ export class UpdateNoteComponent implements OnInit {
     ngOnInit(): void {
       this.updateForm()
     }
-    onSub(){
-      console.log(this.editForm.value);
+ onSub() {
+  console.log(this.editForm.value);
+
+  if (this.editForm.valid) {
+    const id = this.getId();
+    if (!id) {
+      return;
     }
+    const title = this.editForm.value.title!;
+    const description = this.editForm.value.description!;
+    const completed = this.editForm.value.completed!;
+
+    this.taskService.updateTask(id, {
+      title,
+      description,
+      completed
+    });
+  }
 }
+    }

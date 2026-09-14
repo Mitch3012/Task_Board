@@ -17,7 +17,7 @@ export class NoteListComponent {
   getTaskDetails(tasks: Task){
     this.currentTask = tasks;
   }
-  onDelete(id:string){
-    this.taskService.deleteTask(id);
-  }
+async onDelete(id: string) {
+  await this.taskService.deleteTask(id);
 }
+  }
