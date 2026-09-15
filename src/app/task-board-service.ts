@@ -39,6 +39,4 @@ deleteTask(id: string){
   return deleteDoc(doc(this.notesCol, id));
 }
 getTaskSignal = toSignal(this.getTask$());
-
 }
-

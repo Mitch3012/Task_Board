@@ -12,10 +12,4 @@ import { TaskBoard } from './task-board-service';
 export class App {
   protected readonly title = signal('task-board');
    protected readonly taskBoard = inject(TaskBoard);
-    constructor(){
-      effect(() => {
-console.log('Signal:', this.taskBoard.getTaskSignal());
-console.log('Value:', this.taskBoard.getTaskSignal());
-});
-}
 }

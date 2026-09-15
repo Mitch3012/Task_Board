@@ -19,5 +19,6 @@ export class NoteListComponent {
   }
 async onDelete(id: string) {
   await this.taskService.deleteTask(id);
+  console.log('Deletion Complete!')
 }
   }
