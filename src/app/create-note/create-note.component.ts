@@ -14,7 +14,7 @@ export class CreateNoteComponent {
     taskForm = new FormGroup({
       title: new FormControl('',[Validators.required]),
       description: new FormControl('', [(Validators.required)]),
-      complete: new FormControl(false),
+      completed: new FormControl(false),
     })
     onSubmit(){
       console.log(this.taskForm.value);
@@ -23,7 +23,7 @@ export class CreateNoteComponent {
           id: crypto.randomUUID(),
           title: this.taskForm.value.title!,
           description: this.taskForm.value.description!,
-          completed: this.taskForm.value.complete!,
+          completed: this.taskForm.value.completed!,
         
         };
         this.taskService.addTask(newTask);
