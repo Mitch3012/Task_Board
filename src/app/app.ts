@@ -1,7 +1,8 @@
-import { Component, signal, effect } from '@angular/core';
+import { Component, signal, effect, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { inject } from '@angular/core';
 import { TaskBoard } from './task-board-service';
+import { NoteListComponent } from './note-list/note-list.component';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +12,6 @@ import { TaskBoard } from './task-board-service';
 })
 export class App {
   protected readonly title = signal('task-board');
-   protected readonly taskBoard = inject(TaskBoard);
-}
+   taskBoard = inject(TaskBoard);
+  taskCount = computed(()=> this.taskBoard.getTaskSignal()?.length)
+  }

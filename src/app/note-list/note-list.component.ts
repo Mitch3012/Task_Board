@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   imports: [RouterLink],
-  selector: 'app-note-list.component',
+  selector: 'app-note-list',
   styleUrl: './note-list.component.css',
   templateUrl: './note-list.component.html',
 })
