@@ -15,8 +15,20 @@ export class NoteListComponent {
   currentTask: Task | null = null;
 
   getTaskDetails(tasks: Task){
-    this.currentTask = tasks;
+    if (this.currentTask?.id === tasks.id){
+      this.currentTask = null;
+    } else{
+      this.currentTask = tasks;
+    }
   }
+
+  confirmDelete(id:string) {
+    const confirmed = confirm('Are you sure you want to delete this task?')
+    if (confirmed) {
+      this.onDelete(id);
+    }
+  }
+
 async onDelete(id: string) {
   await this.taskService.deleteTask(id);
   console.log('Deletion Complete!')

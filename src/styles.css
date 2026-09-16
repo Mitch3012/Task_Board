@@ -1,5 +1,19 @@
+@import "tailwindcss";
+
 body {
+  min-height: 100vh;
   background-image: url("../cork_board_background.svg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+h1{
+  @media(max-width:1100px) {
+    font-size: 24px;
+}
+  @media (max-width: 700px){
+  font-size: 16px;
+}
 }

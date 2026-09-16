@@ -1,18 +1,19 @@
 <ul>
     @for (task of tasks(); track task.id){
-        <li>
-            <h3>Task title: {{ task.title }}</h3>
-            <label> 
+        <li class="sticky">
+            <h3 class="mb-6 text-center text-3xl font-bold m-3 text-white drop-shadow-lg">Task title: {{ task.title }}</h3>
+            <label class="flex justify-center gap-2"> 
                 <input type="checkbox"[checked]="task.completed" disabled>
-                <p>Complete</p>
+                <p class="text-white text-2xl ml-1.5">Complete</p>
             </label>
-            <button (click)="getTaskDetails(task)">View task details</button>
-            <a [routerLink]="['/tasks', task.id, 'update-note']">Edit task</a>
-            <button (click)="onDelete(task.id)">Delete Task</button>
+    @if (currentTask?.id === task.id){
+    <p class = "text-center text-2xl text-white">{{currentTask.description}}</p>
+}
+            <div class="flex justify-center">
+            <button class="rounded-3xl shadow-md hover:-translate-y-0.5 mt-1.5 bg-green-600 ml-7 mr-2 text-white h-12 w-40 hover:bg-green-800 border-2 hover:border-gray-600" (click)="getTaskDetails(task)">View task details</button>
+             <button class="rounded-3xl shadow-md hover:-translate-y-0.5 bg-amber-600 m-2 text-white h-12 w-40 hover:bg-amber-800 border-2 hover:border-gray-600"[routerLink]="['/tasks', task.id, 'update-note']">Edit task</button>
+            <button class="rounded-3xl shadow-md hover:-translate-y-0.5 mt-2 bg-red-600 m-2 text-white h-12 w-40 hover:bg-red-800 border-2 hover:border-gray-600"(click)="confirmDelete(task.id)">Delete Task</button>
+            </div>        
         </li>
     }
 </ul>
-@if (currentTask !== null){
-    <h3>{{currentTask.title}}</h3>
-    <p>{{currentTask.description}}</p>
-}
