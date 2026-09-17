@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class NoteListComponent {
   taskService = inject(TaskBoard);
+  tasks = this.taskService.getTaskSignal;
   currentTask: Task | null = null;
 
   getTaskDetails(tasks: Task){
@@ -20,15 +21,6 @@ export class NoteListComponent {
       this.currentTask = tasks;
     }
   }
-tasks = computed(() => {
-  return [...(this.taskService.getTaskSignal() ?? [])]
-    .sort((a, b) => {
-      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
-      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
-
-      return dateB - dateA;
-    });
-});
 
   confirmDelete(id:string) {
     const confirmed = confirm('Are you sure you want to delete this task?')
