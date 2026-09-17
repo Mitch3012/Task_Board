@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { TaskBoard } from '../task-board-service';
 import { Task } from '../task';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators  } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   selector: 'app-create-note.component',
   styleUrl: './create-note.component.css',
   templateUrl: './create-note.component.html',
