@@ -1,0 +1,48 @@
+@media (max-width: 1100px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+  label{
+        font-size: 16px;
+  }
+
+  button {
+    font-size: 14px;
+    height: 48px;
+    width: 160px;
+  }
+  input{width: 350px;}
+
+}
+
+@media (max-width: 700px) {
+  ul {
+    grid-template-columns: 1fr;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+  label{
+    font-size: 10px;
+  }
+
+  button {
+    font-size: 10px;
+    height: 48px;
+    width: 120px;
+ }
+  input{width: 325px;}
+}
