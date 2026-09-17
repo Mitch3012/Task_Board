@@ -3,7 +3,6 @@
     box-sizing: border-box;
 }
 .sticky{
-  background-color: #F59E0B;
   border: 1px solid whitesmoke ;
   height: 300px;
   width: 400px;
@@ -11,6 +10,18 @@
   padding: 20px;
   box-shadow: 5px 5px 10px #374151;
   margin: 16px;}
+
+
+.sticky[data-color='yellow'] { background: #F59E0B;}
+.sticky[data-color='pink']   { background: #F472B6; }
+.sticky[data-color='blue']   { background: #60A5FA; }
+.sticky[data-color='green']  { background: #84CC16; }
+ 
+.sticky.completed h3 {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
 
 ul {
   display: grid;

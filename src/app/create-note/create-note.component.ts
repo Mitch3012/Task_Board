@@ -16,6 +16,7 @@ export class CreateNoteComponent {
       title: new FormControl('',[Validators.required]),
       description: new FormControl('', [(Validators.required)]),
       completed: new FormControl(false),
+      color: new FormControl ('yellow'),
     })
     onSubmit(){
       console.log(this.taskForm.value);
@@ -25,7 +26,8 @@ export class CreateNoteComponent {
           title: this.taskForm.value.title!,
           description: this.taskForm.value.description!,
           completed: this.taskForm.value.completed!,
-        
+          color: this.taskForm.value.color!,
+          createdAt: new Date()
         };
         this.taskService.addTask(newTask);
       }

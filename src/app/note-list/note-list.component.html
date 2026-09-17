@@ -1,7 +1,9 @@
 <button class="items-center rounded-3xl shadow-md hover:-translate-y-0.5 mt-1.5 bg-green-600 ml-7 mr-2 text-white h-12 w-40 hover:bg-green-800 border-2 hover:border-gray-600" routerLink="/CreateNote">Create Note</button>
 <ul>
     @for (task of tasks(); track task.id){
-        <li class="sticky">
+        <li  class="sticky" 
+            [class.completed] = "task.completed"
+            [attr.data-color]="task.color">
             <h3 class="mb-6 text-center text-3xl font-bold m-3 text-white drop-shadow-lg">Task title: {{ task.title }}</h3>
             <label class="flex justify-center gap-2"> 
                 <input type="checkbox"[checked]="task.completed" disabled>
@@ -14,7 +16,7 @@
             <button class="rounded-3xl shadow-md hover:-translate-y-0.5 mt-1.5 bg-green-600 ml-7 mr-2 text-white h-14 w-40 hover:bg-green-800 border-2 hover:border-gray-600" (click)="getTaskDetails(task)">View task details</button>
              <button class="rounded-3xl shadow-md hover:-translate-y-0.5 bg-amber-600 m-2 text-white h-14 w-40 hover:bg-amber-800 border-2 hover:border-gray-600"[routerLink]="['/tasks', task.id, 'update-note']">Edit task</button>
             <button class="rounded-3xl shadow-md hover:-translate-y-0.5 mt-2 bg-red-600 m-2 text-white h-14 w-40 hover:bg-red-800 border-2 hover:border-gray-600"(click)="confirmDelete(task.id)">Delete Task</button>
-            </div>        
+            </div>                 
         </li>
     }
 </ul>

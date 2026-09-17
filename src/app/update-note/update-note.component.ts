@@ -35,6 +35,7 @@ export class UpdateNoteComponent implements OnInit {
     title: new FormControl('',[Validators.required]),
     description: new FormControl('',[Validators.required]),
     completed: new FormControl(false),
+    color: new FormControl ('yellow'),
     })
     ngOnInit(): void {
       this.updateForm()
@@ -50,12 +51,14 @@ export class UpdateNoteComponent implements OnInit {
     const title = this.editForm.value.title!;
     const description = this.editForm.value.description!;
     const completed = this.editForm.value.completed!;
+    const  color = this.editForm.value.color!
 
     this.taskService.updateTask(id, {
       title,
       description,
-      completed
+      completed,
+      color
     });
   }
-}
+  }
     }
